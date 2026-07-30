@@ -5,7 +5,7 @@ import { profile } from "@/lib/content";
 
 const focus = [
   { label: "Full-stack development", body: "React frontends and Node.js/Express backends, with real-time communication over WebSockets when the product calls for it." },
-  { label: "Applied machine learning", body: "End-to-end pipelines — data ingestion, feature engineering, model training, and explainability with SHAP." },
+  { label: "Applied machine learning", body: "End-to-end pipelines: data ingestion, feature engineering, model training, and explainability with SHAP." },
   { label: "Shipping", body: "Every project here is deployed and reachable, not sitting in a folder. Build, deploy, iterate." },
 ];
 

@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git checkout *)",
+      "Bash(python -c ' *)",
+      "Bash(cp \"C:/Users/HP/AppData/Local/Temp/claude/d--Binayak-Portfolio/ba056b30-28d7-4280-a697-1adb39c18018/scratchpad/out.pdf\" binayak/public/Binayak_Resume.pdf)",
+      "Bash(npx tsc *)",
+      "Bash(npm run *)"
+    ]
+  }
+}
