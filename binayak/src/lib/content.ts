@@ -15,7 +15,7 @@ export const profile = {
 };
 
 export const metrics = [
-  { value: 0.85, prefix: "R² ", decimals: 2, label: "Crop-yield model accuracy using satellite + climate data" },
+  { value: "Aaruush", label: "Committee Head for business, entrepreneurship, and logical-thinking workshops" },
   { value: 100, suffix: "%", label: "Compatibility achieved for legacy HR infrastructure at HAL" },
   { value: 8.8, suffix: "/10", decimals: 1, label: "CGPA through sixth semester, BTech CSE" },
   { value: 70, suffix: "+", label: "Problems solved on HackerRank, active on CodeChef" },
@@ -82,6 +82,20 @@ export const projects: Project[] = [
     ],
     stack: ["Python", "Machine Learning", "Google Earth Engine", "SHAP"],
     github: "https://github.com/BinayakMohanta/YieldSense-2.0",
+  },
+  {
+    index: "03",
+    title: "Treasure Hunt: real-time multiplayer game",
+    year: "2025",
+    status: "Live",
+    premise: "A full-stack treasure hunt where teams race through QR-coded clues, with everyone's progress synced live.",
+    outcomes: [
+      "Built a React frontend and Node.js/Express backend communicating over Socket.IO WebSockets for real-time team progress.",
+      "Implemented QR-code clue validation with camera scanning, MongoDB persistence, and Google Sheets data sync; deployed on Vercel.",
+    ],
+    stack: ["React", "Node.js", "Express", "Socket.IO", "MongoDB"],
+    github: "https://github.com/BinayakMohanta/treasure-hunt-app",
+    demo: "https://treasure-hunt-app-swart.vercel.app",
   },
 ];
 

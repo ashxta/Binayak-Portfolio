@@ -6,13 +6,39 @@ import { metrics, profile } from "@/lib/content";
 
 const ROLES = ["Data Analyst", "Applied ML Engineer", "Data-Driven Problem Solver"];
 
+const Orbit = () => {
+  const reduce = useReducedMotion();
+  return (
+    <svg viewBox="0 0 1000 150" fill="none" preserveAspectRatio="none" className="h-24 w-full sm:h-32" aria-hidden="true">
+      {[125, 375, 625, 875].map((x) => (
+        <line key={x} x1={x} y1={20} x2={x} y2={148} stroke="hsl(var(--border))" strokeWidth="1" vectorEffect="non-scaling-stroke" />
+      ))}
+      <line x1="0" y1="148" x2="1000" y2="148" stroke="hsl(var(--border))" strokeWidth="1" />
+      <motion.path id="track" d="M 20 128 Q 500 -60 980 118" stroke="url(#orbitGrad)" strokeWidth="1.5" strokeLinecap="round" vectorEffect="non-scaling-stroke" initial={{ pathLength: reduce ? 1 : 0 }} animate={{ pathLength: 1 }} transition={{ duration: 2, ease: EASE, delay: 0.4 }} />
+      <defs>
+        <linearGradient id="orbitGrad" x1="0" y1="0" x2="1000" y2="0" gradientUnits="userSpaceOnUse">
+          <stop stopColor="hsl(262 83% 58%)" stopOpacity="0.25" />
+          <stop offset="0.5" stopColor="hsl(271 91% 65%)" />
+          <stop offset="1" stopColor="hsl(262 83% 58%)" stopOpacity="0.25" />
+        </linearGradient>
+      </defs>
+      {!reduce && (
+        <motion.circle r="4" fill="hsl(271 91% 65%)" style={{ filter: "drop-shadow(0 0 6px hsl(271 91% 65%))" }} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2.2 }}>
+          <animateMotion dur="14s" repeatCount="indefinite" path="M 20 128 Q 500 -60 980 118" />
+        </motion.circle>
+      )}
+    </svg>
+  );
+};
+
 const Metric = ({ value, prefix, suffix, decimals, label }: (typeof metrics)[number]) => {
-  const { ref, formatted } = useCountUp(value, decimals ?? 0);
+  const numericValue = typeof value === "number" ? value : 0;
+  const { ref, formatted } = useCountUp(numericValue, decimals ?? 0);
   return (
     <motion.div variants={rise} className="border-t border-border pt-4">
       <p className="mono text-2xl font-medium tracking-tight sm:text-3xl">
         <span className="text-muted-foreground">{prefix}</span>
-        <span ref={ref} className="text-foreground">{formatted}</span>
+        {typeof value === "number" ? <span ref={ref} className="text-foreground">{formatted}</span> : <span className="text-foreground">{value}</span>}
         <span className="text-glow text-accent">{suffix}</span>
       </p>
       <p className="mt-2 max-w-[24ch] text-[13px] leading-snug text-muted-foreground">{label}</p>
@@ -60,9 +86,12 @@ const Hero = () => {
             <span className="mono text-[11px] text-muted-foreground">{profile.email}</span>
           </motion.div>
         </motion.div>
-        <motion.div initial="hidden" animate="show" variants={stagger} transition={{ delayChildren: 0.6 }} className="mt-16 grid grid-cols-2 gap-x-6 gap-y-8 border-t border-border pt-8 lg:grid-cols-4">
-          {metrics.map((metric) => <Metric key={metric.label} {...metric} />)}
-        </motion.div>
+        <div className="mt-14 sm:mt-16">
+          <Orbit />
+          <motion.div initial="hidden" animate="show" variants={stagger} transition={{ delayChildren: 1 }} className="mt-6 grid grid-cols-2 gap-x-6 gap-y-8 lg:grid-cols-4">
+            {metrics.map((metric) => <Metric key={metric.label} {...metric} />)}
+          </motion.div>
+        </div>
       </div>
     </section>
   );
