@@ -45,7 +45,7 @@ const Card = ({ project }: { project: Project }) => (
 const Projects = () => (
   <motion.section {...inViewSection} id="work" className="scroll-mt-24 py-24 sm:py-28">
     <div className="mx-auto max-w-6xl px-6">
-      <SectionHeading eyebrow="Projects" title="Built, shipped, and running." intro="Two builds that cover the span: a real-time multiplayer web app, and a machine-learning pipeline reading the ground from orbit." />
+      <SectionHeading eyebrow="Projects" title="Data products with real-world purpose." intro="Customer analytics for better retention decisions, and an explainable ML pipeline for crop-yield prediction." />
       <div className="grid gap-6 md:grid-cols-2">
         {projects.map((p) => <Card key={p.index} project={p} />)}
       </div>

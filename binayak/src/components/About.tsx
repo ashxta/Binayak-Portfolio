@@ -4,15 +4,15 @@ import { inViewSection, rise } from "@/lib/motion";
 import { profile } from "@/lib/content";
 
 const focus = [
-  { label: "Full-stack development", body: "React frontends and Node.js/Express backends, with real-time communication over WebSockets when the product calls for it." },
-  { label: "Applied machine learning", body: "End-to-end pipelines: data ingestion, feature engineering, model training, and explainability with SHAP." },
-  { label: "Shipping", body: "Every project here is deployed and reachable, not sitting in a folder. Build, deploy, iterate." },
+  { label: "Data analytics", body: "Python, SQL, Power BI, Excel, and exploratory analysis to make customer, sales, and operational data useful." },
+  { label: "Applied machine learning", body: "End-to-end pipelines covering data integration, feature engineering, predictive modelling, and SHAP explainability." },
+  { label: "Data-driven delivery", body: "Practical systems and insights: from an Oracle-backed HR portal to dashboards and machine-learning applications." },
 ];
 
 const About = () => (
   <motion.section {...inViewSection} id="about" className="scroll-mt-24 py-24 sm:py-28">
     <div className="mx-auto max-w-6xl px-6">
-      <SectionHeading eyebrow="About" title="From first commit to live deployment." />
+      <SectionHeading eyebrow="About" title="Turning data into useful decisions." />
       <div className="grid gap-12 md:grid-cols-12">
         <div className="space-y-5 md:col-span-6">
           {profile.summary.map((p) => (

@@ -1,23 +1,22 @@
 export const profile = {
   name: "Binayak Mohanta",
-  role: "Software Developer",
+  role: "Data Analyst & Applied ML Engineer",
   location: "Kolkata, West Bengal",
   email: "binayakmohanta3124@gmail.com",
   phone: "+91 9717060310",
   github: "https://github.com/BinayakMohanta",
   linkedin: "https://www.linkedin.com/in/binayakmohanta/",
   resume: "/Binayak_Resume.pdf",
-  positioning:
-    "I build software that ships: from a production HR portal inside Hindustan Aeronautics to a real-time multiplayer game and an ML pipeline reading crop yield off satellite imagery.",
+  positioning: "Data Analyst and Applied ML Engineer focused on building data-driven solutions with Python, SQL, machine learning, and clear analytics.",
   summary: [
-    "The thread through my work is aerospace and signal: an internship at Hindustan Aeronautics Limited, remote-sensing research under IEEE GRSS, and a machine-learning project that predicts crop yield from Sentinel satellite data.",
-    "I'm finishing a BTech in Computer Science at SRM Institute of Science and Technology, and I like the whole span of a build, backend, frontend and data, taken from first commit to live deployment.",
+    "I combine analytical thinking with machine learning to turn complex data into practical, interpretable solutions—from internal HR systems to customer analytics and crop-yield prediction.",
+    "I'm pursuing a BTech in Computer Science and Engineering at SRM Institute of Science and Technology, with foundations in object-oriented programming, computer networks, software engineering, and project management.",
   ],
 };
 
 export const metrics = [
-  { value: 0.85, prefix: "R² ", decimals: 2, label: "Crop-yield model accuracy on satellite + climate data" },
-  { value: 5, label: "Backing services in one real-time app: React, Node, Socket.IO, MongoDB, Sheets" },
+  { value: 0.85, prefix: "R² ", decimals: 2, label: "Crop-yield model accuracy using satellite + climate data" },
+  { value: 100, suffix: "%", label: "Compatibility achieved for legacy HR infrastructure at HAL" },
   { value: 8.8, suffix: "/10", decimals: 1, label: "CGPA through sixth semester, BTech CSE" },
   { value: 70, suffix: "+", label: "Problems solved on HackerRank, active on CodeChef" },
 ];
@@ -29,26 +28,18 @@ export const experience = [
     period: "Dec 2025 – Jan 2026",
     place: "Barrackpore, Kolkata",
     points: [
-      "Built a web portal for the HR department that streamlined internal workflows and centralized data access for the team.",
-      "Ensured compatibility with the organization's legacy hardware and software, working within the real infrastructure constraints of a defence PSU.",
-    ],
-  },
-  {
-    org: "IEEE GRSS SRM Student Chapter",
-    role: "Research Team Member",
-    period: "Oct 2024 – Feb 2025",
-    place: "SRM IST",
-    points: [
-      "Conducted research in geoscience and remote sensing, working with satellite and geospatial data under the IEEE GRSS chapter.",
+      "Engineered a centralized HR web portal using ASP, Python, and Oracle, streamlining internal workflows and accelerating organizational data access.",
+      "Architected automated Python data pipelines and optimized Oracle queries, ensuring 100% system compatibility within legacy infrastructure.",
     ],
   },
   {
     org: "Aaruush, SRM IST",
     role: "Committee Head",
-    period: "Aug 2024 – Present",
+    period: "Aug 2024 – July 2026",
     place: "SRM IST",
     points: [
-      "Led a committee running events and workshops on business, entrepreneurship, and logical thinking at the university's flagship techno-management fest.",
+      "Led workshops on business, entrepreneurship, and logical thinking, coordinating teams and event operations.",
+      "Managed stakeholder communication, planning, and execution across activities at SRM's flagship fest.",
     ],
   },
 ];
@@ -68,40 +59,37 @@ export type Project = {
 export const projects: Project[] = [
   {
     index: "01",
-    title: "Treasure Hunt: real-time multiplayer game",
-    year: "2025",
-    status: "Live",
-    premise:
-      "A full-stack treasure hunt where teams race through QR-coded clues, with everyone's progress synced live.",
+    title: "OmniStyle: customer analytics platform",
+    year: "2026",
+    status: "Shipped",
+    premise: "An end-to-end analytics platform for understanding customer behaviour, sales performance, and loyalty trends.",
     outcomes: [
-      "React frontend and Node.js/Express backend communicating over Socket.IO WebSockets for real-time team progress.",
-      "QR-code clue validation with camera scanning, MongoDB persistence, and game data synced from Google Sheets; deployed on Vercel.",
+      "Built the analysis workflow with Python, MongoDB, and SQL to surface customer and sales insights.",
+      "Developed Power BI dashboards and ML models for customer segmentation and churn prediction, identifying retention drivers and actionable business insights.",
     ],
-    stack: ["React", "Node.js", "Express", "Socket.IO", "MongoDB"],
-    github: "https://github.com/BinayakMohanta/treasure-hunt-app",
-    demo: "https://treasure-hunt-app-swart.vercel.app",
+    stack: ["Python", "Pandas", "NumPy", "MongoDB", "MySQL", "Power BI"],
+    github: "https://github.com/BinayakMohanta/OmniStyle",
   },
   {
     index: "02",
-    title: "YieldSense: crop yield from orbit",
-    year: "2025",
+    title: "YieldSense: AI-based crop-yield prediction",
+    year: "2026",
     status: "Shipped",
-    premise:
-      "An end-to-end ML pipeline that reads Sentinel satellite imagery and climate data to predict crop yield before harvest.",
+    premise: "An end-to-end machine-learning pipeline that predicts crop yields from satellite imagery and climate data.",
     outcomes: [
-      "Integrated Sentinel-1/2 imagery, CHIRPS precipitation and ERA5 climate data via Google Earth Engine, reaching R² ≈ 0.85.",
-      "SHAP explainability surfaces the drivers behind each prediction, NDVI and rainfall, in an interactive Streamlit dashboard with yield maps.",
+      "Integrated Sentinel-1/2 imagery, CHIRPS precipitation, and ERA5 climate data via Google Earth Engine, reaching R² ≈ 0.85.",
+      "Performed feature engineering and applied SHAP explainability to identify critical agronomic drivers, including NDVI and rainfall.",
     ],
-    stack: ["Python", "Google Earth Engine", "SHAP", "Streamlit"],
-    github: "https://colab.research.google.com/drive/1yhRUBt6byPtceaglDe4odHoJwphnUGmy",
+    stack: ["Python", "Machine Learning", "Google Earth Engine", "SHAP"],
+    github: "https://github.com/BinayakMohanta/YieldSense-2.0",
   },
 ];
 
 export const skillGroups = [
-  { label: "Languages", items: ["Python", "Java", "JavaScript", "C / C++", "SQL", "HTML/CSS"] },
-  { label: "Frameworks & platforms", items: ["React", "Node.js", "Express", "Socket.IO", "Streamlit", "Google Earth Engine"] },
-  { label: "AI & ML", items: ["Machine learning", "Feature engineering", "SHAP explainability", "Predictive modelling"] },
-  { label: "Databases & tools", items: ["MongoDB", "MySQL", "Git", "GitHub", "VS Code", "Google Colab"] },
+  { label: "Languages & tools", items: ["C / C++", "Java", "Python", "SQL", "Bash", "Flask", "FastAPI"] },
+  { label: "Data analytics", items: ["Power BI", "Excel", "Data analysis", "Data visualization", "EDA", "Pandas", "NumPy"] },
+  { label: "AI & ML", items: ["Machine learning", "Feature engineering", "Predictive modelling", "SHAP explainability"] },
+  { label: "Databases & platforms", items: ["Oracle", "MySQL", "MongoDB", "Google Earth Engine", "Google Colab", "GitHub"] },
 ];
 
 export const education = {

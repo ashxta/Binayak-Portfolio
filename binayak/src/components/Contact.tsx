@@ -19,7 +19,7 @@ const Contact = () => (
         Have something worth building?
       </motion.h2>
       <motion.p variants={rise} className="mt-7 max-w-xl text-[16px] leading-relaxed text-muted-foreground">
-        I'm looking for software developer roles and internships. Email is the fastest way to reach me, and I reply to everything.
+        I'm looking for data analyst, applied machine-learning, and related internship opportunities. Email is the fastest way to reach me.
       </motion.p>
       <motion.div variants={rise} className="mt-10 flex flex-wrap gap-3">
         <a href={`mailto:${profile.email}`} className="glow-btn inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3.5 text-sm font-medium text-primary-foreground">

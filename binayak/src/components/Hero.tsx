@@ -4,44 +4,7 @@ import { ArrowDownRight, Github, Linkedin, Mail } from "lucide-react";
 import { EASE, rise, stagger, useCountUp } from "@/lib/motion";
 import { metrics, profile } from "@/lib/content";
 
-const ROLES = ["Software Developer", "Full-Stack Builder", "ML Practitioner"];
-
-/* Orbital ground-track: an arc swept across a night grid, satellite riding it. */
-const Orbit = () => {
-  const reduce = useReducedMotion();
-  return (
-    <svg viewBox="0 0 1000 150" fill="none" preserveAspectRatio="none" className="h-24 w-full sm:h-32" aria-hidden="true">
-      {[125, 375, 625, 875].map((x) => (
-        <line key={x} x1={x} y1={20} x2={x} y2={148} stroke="hsl(var(--border))" strokeWidth="1" vectorEffect="non-scaling-stroke" />
-      ))}
-      <line x1="0" y1="148" x2="1000" y2="148" stroke="hsl(var(--border))" strokeWidth="1" />
-      <motion.path
-        id="track"
-        d="M 20 128 Q 500 -60 980 118"
-        stroke="url(#orbitGrad)"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        vectorEffect="non-scaling-stroke"
-        initial={{ pathLength: reduce ? 1 : 0 }}
-        animate={{ pathLength: 1 }}
-        transition={{ duration: 2, ease: EASE, delay: 0.4 }}
-      />
-      <defs>
-        <linearGradient id="orbitGrad" x1="0" y1="0" x2="1000" y2="0" gradientUnits="userSpaceOnUse">
-          <stop stopColor="hsl(262 83% 58%)" stopOpacity="0.25" />
-          <stop offset="0.5" stopColor="hsl(271 91% 65%)" />
-          <stop offset="1" stopColor="hsl(262 83% 58%)" stopOpacity="0.25" />
-        </linearGradient>
-      </defs>
-      {!reduce && (
-        <motion.circle r="4" fill="hsl(271 91% 65%)" style={{ filter: "drop-shadow(0 0 6px hsl(271 91% 65%))" }}
-          initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2.2 }}>
-          <animateMotion dur="14s" repeatCount="indefinite" path="M 20 128 Q 500 -60 980 118" />
-        </motion.circle>
-      )}
-    </svg>
-  );
-};
+const ROLES = ["Data Analyst", "Applied ML Engineer", "Data-Driven Problem Solver"];
 
 const Metric = ({ value, prefix, suffix, decimals, label }: (typeof metrics)[number]) => {
   const { ref, formatted } = useCountUp(value, decimals ?? 0);
@@ -63,8 +26,8 @@ const Hero = () => {
 
   useEffect(() => {
     if (reduce) return;
-    const t = setInterval(() => setI((v) => (v + 1) % ROLES.length), 2800);
-    return () => clearInterval(t);
+    const timer = setInterval(() => setI((value) => (value + 1) % ROLES.length), 2800);
+    return () => clearInterval(timer);
   }, [reduce]);
 
   return (
@@ -72,55 +35,34 @@ const Hero = () => {
       <div className="mx-auto max-w-6xl px-6">
         <motion.div initial="hidden" animate="show" variants={stagger}>
           <motion.p variants={rise} className="eyebrow">
-            {profile.location} · open to software roles and internships
+            {profile.location} · open to data analytics and machine-learning opportunities
           </motion.p>
-
           <motion.h1 variants={rise} className="grad-text mt-6 font-display text-[clamp(2.9rem,8.5vw,6.5rem)] font-semibold leading-[0.95]">
-            Binayak Mohanta
+            {profile.name}
           </motion.h1>
-
           <motion.div variants={rise} className="mt-4 h-9 overflow-hidden sm:h-11">
             <AnimatePresence mode="wait">
-              <motion.p
-                key={ROLES[i]}
-                initial={{ y: "100%", opacity: 0 }}
-                animate={{ y: "0%", opacity: 1 }}
-                exit={{ y: "-100%", opacity: 0 }}
-                transition={{ duration: 0.5, ease: EASE }}
-                className="font-display text-2xl font-medium text-accent sm:text-3xl"
-              >
+              <motion.p key={ROLES[i]} initial={{ y: "100%", opacity: 0 }} animate={{ y: "0%", opacity: 1 }} exit={{ y: "-100%", opacity: 0 }} transition={{ duration: 0.5, ease: EASE }} className="font-display text-2xl font-medium text-accent sm:text-3xl">
                 {ROLES[i]}
               </motion.p>
             </AnimatePresence>
           </motion.div>
-
           <div className="mt-8 grid gap-10 border-t border-border pt-8 md:grid-cols-12">
-            <motion.p variants={rise} className="text-[16px] leading-relaxed text-muted-foreground md:col-span-7">
-              {profile.positioning}
-            </motion.p>
+            <motion.p variants={rise} className="text-[16px] leading-relaxed text-muted-foreground md:col-span-7">{profile.positioning}</motion.p>
             <motion.div variants={rise} className="flex flex-wrap items-start gap-3 md:col-span-5 md:justify-end">
-              <a href={`mailto:${profile.email}`} className="glow-btn inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-medium text-primary-foreground">
-                <Mail className="h-4 w-4" /> Contact me
-              </a>
-              <a href={profile.resume} target="_blank" rel="noopener noreferrer" className="glass inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-medium">
-                Résumé <ArrowDownRight className="h-4 w-4" />
-              </a>
+              <a href={`mailto:${profile.email}`} className="glow-btn inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-medium text-primary-foreground"><Mail className="h-4 w-4" /> Contact me</a>
+              <a href={profile.resume} target="_blank" rel="noopener noreferrer" className="glass inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-medium">Resume <ArrowDownRight className="h-4 w-4" /></a>
             </motion.div>
           </div>
-
           <motion.div variants={rise} className="mt-6 flex items-center gap-5">
             <a href={profile.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-muted-foreground transition-colors hover:text-accent"><Github className="h-[18px] w-[18px]" /></a>
             <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-muted-foreground transition-colors hover:text-accent"><Linkedin className="h-[18px] w-[18px]" /></a>
             <span className="mono text-[11px] text-muted-foreground">{profile.email}</span>
           </motion.div>
         </motion.div>
-
-        <div className="mt-14 sm:mt-16">
-          <Orbit />
-          <motion.div initial="hidden" animate="show" variants={stagger} transition={{ delayChildren: 1 }} className="grid grid-cols-2 gap-x-6 gap-y-8 lg:grid-cols-4">
-            {metrics.map((m) => <Metric key={m.label} {...m} />)}
-          </motion.div>
-        </div>
+        <motion.div initial="hidden" animate="show" variants={stagger} transition={{ delayChildren: 0.6 }} className="mt-16 grid grid-cols-2 gap-x-6 gap-y-8 border-t border-border pt-8 lg:grid-cols-4">
+          {metrics.map((metric) => <Metric key={metric.label} {...metric} />)}
+        </motion.div>
       </div>
     </section>
   );
